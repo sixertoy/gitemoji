@@ -1,0 +1,27 @@
+{
+  "name": "gitmojo",
+  "version": "0.1.0",
+  "description": "Commit Messages Emojis Hook Generator",
+  "main": "install.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sixertoy/gitmojo.git"
+  },
+  "author": "Matthieu Lassalvy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sixertoy/gitmojo/issues"
+  },
+  "homepage": "https://github.com/sixertoy/gitmojo#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.1.0",
+    "prettier": "^1.18.2"
+  },
+  "scripts": {
+    "start": "node ./install.js"
+  }
+}

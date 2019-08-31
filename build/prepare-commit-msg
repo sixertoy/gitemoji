@@ -1,0 +1,80 @@
+#!/bin/sh
+
+# This hook includes three examples. The first one removes the
+# "# Please enter the commit message..." help message.
+#
+# The second includes the output of "git diff --name-status -r"
+# into the message, just before the "git status" output.  It is
+# commented because it doesn't cope with --amend or with squashed
+# commits.
+#
+# The third example adds a Signed-off-by line to the message, that can
+# still be edited.  This is rarely a good idea.
+
+EMOJIS=(
+  :deploy:/:rocket:
+  :init:/:tada:
+  :test:/:robot:
+  :tests:/:robot:
+  :wip:/:construction:
+  :revert:/:rewind:
+  :docker:/:whale:
+  :bug:/:bug:
+  :refacto:/:recycle:
+  :refactor:/:recycle:
+  :build:/:hammer:
+  :config:/:gear:
+  :doc:/:books:
+  :login:/:key:
+  :search:/:mag_right:
+  :feat:/:sparkles:
+  :feats:/:sparkles:
+  :feature:/:sparkles:
+  :features:/:sparkles:
+  :css:/:art:
+  :sass:/:art:
+  :style:/:art:
+  :styles:/:art:
+  :move:/:truck:
+  :dep:/:package:
+  :pkg:/:package:
+  :fix:/:rotating_light:
+  :hotfix:/:rotating_light:
+  :ci:/:vertical_traffic_light:
+  :mobile:/:iphone:
+  :responsive:/:iphone:
+  :rm:/:boom:
+  :delete:/:boom:
+)
+
+COMMIT_MSG_FILE=$1 # fichier temporaire contenant le message
+MSG_CONTENT=$(cat $COMMIT_MSG_FILE) # get full message content with body
+MSG_FL=$(head -1 $COMMIT_MSG_FILE) # get firstline of comment
+
+REGEX=(:[[:alpha:]]+:)
+if [[ $MSG_FL =~ $REGEX ]]; then
+  MATCH="${BASH_REMATCH[0]}"
+
+  # cherche la paire correspondante au match de la regex
+  REPLACER=0
+  for PAIR in ${EMOJIS[@]}
+  do
+    EMOJI=${PAIR#*/}
+    KEYWORD=${PAIR%/*}
+    if [[ $KEYWORD == $MATCH ]]; then
+      REPLACER=$EMOJI
+    fi
+  done
+
+  if [[ $REPLACER == 0 ]]; then
+    exit 0
+  fi
+
+  # replace commit emoji
+  # with the correct emoji keyword
+  OUTPUT_FL=${MSG_FL/$MATCH/$REPLACER}
+  OUTPUT_MSG=${MSG_CONTENT/$MSG_FL/$OUTPUT_FL}
+  echo "$OUTPUT_MSG" > "$COMMIT_MSG_FILE"
+fi
+
+exit 0
