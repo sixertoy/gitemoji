@@ -18,10 +18,9 @@ function getSymbolByType(input) {
 }
 
 function generateBashArrayEntries(emojiMap) {
-  const bashArray = Object.keys(emojiMap)
-    .map(function getEntryArraySymbol(keyword) {
-      const input = emojiMap[keyword];
-      const symbol = getSymbolByType(input);
+  const bashArray = emojiMap
+    .map(function getEntryArraySymbol({ keyword, tag }) {
+      const symbol = getSymbolByType(tag);
       return { keyword, symbol };
     })
     .map(function getBashArrayEntry({ keyword, symbol }) {
