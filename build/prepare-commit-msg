@@ -1,50 +1,39 @@
 #!/bin/sh
 
-# This hook includes three examples. The first one removes the
-# "# Please enter the commit message..." help message.
-#
-# The second includes the output of "git diff --name-status -r"
-# into the message, just before the "git status" output.  It is
-# commented because it doesn't cope with --amend or with squashed
-# commits.
-#
-# The third example adds a Signed-off-by line to the message, that can
-# still be edited.  This is rarely a good idea.
-
 EMOJIS=(
-  :deploy:/:rocket:
-  :init:/:tada:
-  :test:/:robot:
-  :tests:/:robot:
-  :wip:/:construction:
-  :revert:/:rewind:
-  :docker:/:whale:
-  :bug:/:bug:
-  :refacto:/:recycle:
-  :refactor:/:recycle:
-  :build:/:hammer:
-  :config:/:gear:
-  :doc:/:books:
-  :login:/:key:
-  :search:/:mag_right:
-  :feat:/:sparkles:
-  :feats:/:sparkles:
-  :feature:/:sparkles:
-  :features:/:sparkles:
-  :css:/:art:
-  :sass:/:art:
-  :style:/:art:
-  :styles:/:art:
-  :move:/:truck:
-  :dep:/:package:
-  :pkg:/:package:
-  :fix:/:rotating_light:
-  :hotfix:/:rotating_light:
-  :ci:/:vertical_traffic_light:
-  :mobile:/:iphone:
-  :responsive:/:iphone:
-  :rm:/:boom:
-  :delete:/:boom:
+  ":deploy:/🚀"
+  ":init:/🎉"
+  ":test:/🤖"
+  ":tests:/🤖"
+  ":wip:/🚧"
+  ":revert:/⏪"
+  ":docker:/🐳"
+  ":bug:/🐛"
+  ":refacto:/♻️"
+  ":refactor:/♻️"
+  ":build:/🔨"
+  ":config:/⚙"
+  ":doc:/📚"
+  ":login:/🔑"
+  ":search:/🔎"
+  ":feat:/✨"
+  ":feats:/✨"
+  ":feature:/✨"
+  ":features:/✨"
+  ":css:/🎨"
+  ":sass:/🎨"
+  ":style:/🎨"
+  ":styles:/🎨"
+  ":move:/🚚"
+  ":dep:/📦"
+  ":pkg:/📦"
+  ":fix:/🚨"
+  ":hotfix:/🚨"
+  ":ci:/🚦"
+  ":mobile:/☎️"
+  ":responsive:/☎️"
+  ":rm:/💥"
+  ":delete:/💥"
 )
 
 COMMIT_MSG_FILE=$1 # fichier temporaire contenant le message

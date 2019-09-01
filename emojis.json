@@ -1,5 +1,5 @@
 {
-  "deploy": "rocket",
+  "deploy": "🚀",
   "init": "tada",
   "test": "robot",
   "tests": "robot",
@@ -14,7 +14,7 @@
   "doc": "books",
   "login": "key",
   "search": "mag_right",
-  "feat": "sparkles",   
+  "feat": "sparkles",
   "feats": "sparkles",
   "feature": "sparkles",
   "features": "sparkles",
@@ -28,8 +28,8 @@
   "fix": "rotating_light",
   "hotfix": "rotating_light",
   "ci": "vertical_traffic_light",
-  "mobile": "iphone",
-  "responsive": "iphone",
+  "mobile": "phone",
+  "responsive": "phone",
   "rm": "boom",
   "delete": "boom"
 }
