@@ -26,8 +26,6 @@ gitmojo init --doc
 # gitmojo init
 ```
 
-Edit `.gitmojorc.json` to fit your needs
-
 #### Husky's hook configuration
 
 Update `Husky's` configuration with `prepare-commit-msg` hook
@@ -44,7 +42,9 @@ Update `Husky's` configuration with `prepare-commit-msg` hook
 
 ## Defaults Emojis
 
-See [GITMOJO.md](./GITMOJO.md)
+See [GITMOJO.md](./GITMOJO.md) for defaults emojis<br>
+Edit `.gitmojorc.json` in you project to fit your needs<br>
+Use `gitmojo -d` to regenerate the documentation file
 
 ## TODOS
 
