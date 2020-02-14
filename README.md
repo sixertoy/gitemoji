@@ -4,6 +4,8 @@
 
 ## Install
 
+Gitmojo needs to be installed globally
+
 ```bash
 git clone git@github.com:sixertoy/gitmojo.git
 yarn link

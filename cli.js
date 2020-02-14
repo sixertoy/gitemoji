@@ -16,30 +16,35 @@
  */
 const path = require('path');
 const args = require('args');
-
-const USE_DEBUG = true;
-const USE_TTY = process.stderr.isTTY;
-
-function initializeEmojiForCurrentProject(name, sub, options) {
-  const configFile = options.config;
-  console.log('configFile', configFile);
-  process.exit(0);
-}
+const initializeEmojiForCurrentProject = require('./src/init');
+const {
+  TIME_COLOR,
+  USE_DEBUG,
+  USE_TTY,
+  DEFAULT_CONFIG_FILE,
+} = require('./src/_constants');
 
 try {
+  console.time(TIME_COLOR);
   args
-    .option('config', 'Emojis config file', '.gitmojorc')
+    .option('config', 'Emojis config file', DEFAULT_CONFIG_FILE)
+    .option('docs', 'Generate contributing file based on config file', false)
     .command(
       'init',
       'Initialize hook in your project',
       initializeEmojiForCurrentProject,
       ['i']
     )
-    .example('gitmojo init', 'Initialize your project with gitmojo hook')
     .parse(process.argv);
   args.showHelp();
 } catch (e) {
-  if (USE_DEBUG) error(`error >>> ${e}\n`);
-  if (USE_TTY) error('\u001b[31m! Unexpected error has occurred\u001b[39m\n');
+  if (USE_DEBUG) {
+    const msg = `\u001b[31m${e}\u001b[39m\n`;
+    process.stderr.write(msg);
+  }
+  if (USE_TTY) {
+    const msg = '\u001b[31m! Unexpected error has occurred\u001b[39m\n';
+    process.stderr.write(msg);
+  }
   process.exit(1);
 }
