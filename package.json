@@ -18,9 +18,9 @@
     "node": ">=8.10.0",
     "yarn": ">=1.17.0"
   },
-  "main": "generator.js",
+  "main": "cli.js",
   "bin": {
-    "kiss": "./bin/gitmojo"
+    "gitmojo": "./bin/gitmojo"
   },
   "files": [
     "bin/",
@@ -29,7 +29,6 @@
     "cli.js"
   ],
   "devDependencies": {
-    "args": "^5.0.1",
     "babel-eslint": "10.0.3",
     "emojilib": "2.4.0",
     "eslint": "5.3.0",
@@ -46,8 +45,9 @@
     "prettier-eslint-cli": "^5.0.0",
     "tablemark": "2.0.0"
   },
-  "peerDependencies": {
-    "husky": "^3.0.0"
+  "dependencies": {
+    "args": "5.0.1",
+    "fs-extra": "8.1.0"
   },
   "scripts": {
     "lint": "eslint --fix -c ./.eslintrc.json ./cli.js './src/**/*.js'",

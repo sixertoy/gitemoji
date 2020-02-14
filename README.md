@@ -6,8 +6,8 @@
 
 ```bash
 git clone git@github.com:sixertoy/gitmojo.git
-npm link
-# or yarn link
+yarn link
+# or npm link
 ```
 
 ## Usage
@@ -17,6 +17,7 @@ Install Gitmojo in your project
 ```bash
 cd  myproject
 gitmojo init
+# gitmojo init --config=.gitmojorc
 ```
 
 Update your `package.json` with husky configuration
