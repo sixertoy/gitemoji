@@ -1,35 +1,43 @@
 [
-  { "keyword": "deploy", "tag": "rocket" },
-  { "keyword": "init", "tag": "tada" },
-  { "keyword": "tests", "tag": "robot", "alias": ["test"] },
-  { "keyword": "wip", "tag": "construction" },
-  { "keyword": "revert", "tag": "rewind" },
-  { "keyword": "docker", "tag": "whale" },
-  { "keyword": "bugs", "tag": "bug" },
+  { "tag": "deploy", "emojiName": "rocket" },
+  { "tag": "init", "emojiName": "tada" },
+  { "tag": "tests", "emojiName": "robot", "alias": ["test"] },
+  { "tag": "wip", "emojiName": "construction" },
+  { "tag": "revert", "emojiName": "rewind" },
+  { "tag": "docker", "emojiName": "whale" },
+  { "tag": "bugs", "emojiName": "bug" },
   {
-    "keyword": "refactor",
-    "tag": "truck",
+    "tag": "refactor",
+    "emojiName": "truck",
     "alias": ["rfct", "rfact", "refacto"]
   },
-  { "keyword": "build", "tag": "hammer" },
-  { "keyword": "config", "tag": "gear", "alias": ["conf"] },
-  { "keyword": "documentation", "tag": "books", "alias": ["docs", "doc"] },
-  { "keyword": "auth", "tag": "key", "alias": ["login"] },
-  { "keyword": "search", "tag": "mag_right" },
+  { "tag": "build", "emojiName": "hammer" },
+  { "tag": "config", "emojiName": "gear", "alias": ["conf"] },
   {
-    "keyword": "feature",
-    "tag": "sparkles",
+    "tag": "documentation",
+    "emojiName": "books",
+    "alias": ["docs", "doc"]
+  },
+  { "tag": "auth", "emojiName": "key", "alias": ["login"] },
+  { "tag": "search", "emojiName": "mag_right" },
+  {
+    "tag": "feature",
+    "emojiName": "sparkles",
     "alias": ["feat", "feats", "features"]
   },
   {
-    "keyword": "style",
-    "tag": "art",
+    "tag": "style",
+    "emojiName": "art",
     "alias": ["css", "sass", "styles", "ui"]
   },
-  { "keyword": "move", "tag": "truck" },
-  { "keyword": "pkg", "tag": "package", "alias": ["dep"] },
-  { "keyword": "hotfix", "tag": "rotating_light", "alias": ["fix"] },
-  { "keyword": "ci", "tag": "vertical_traffic_light" },
-  { "keyword": "responsive", "tag": "phone", "alias": ["mobile"] },
-  { "keyword": "delete", "tag": "boom", "alias": ["rm", "trash", "cleanup"] }
+  { "tag": "move", "emojiName": "truck" },
+  { "tag": "pkg", "emojiName": "package", "alias": ["dep"] },
+  { "tag": "hotfix", "emojiName": "rotating_light", "alias": ["fix"] },
+  { "tag": "ci", "emojiName": "vertical_traffic_light" },
+  { "tag": "responsive", "emojiName": "phone", "alias": ["mobile"] },
+  {
+    "tag": "delete",
+    "emojiName": "boom",
+    "alias": ["rm", "trash", "cleanup"]
+  }
 ]
