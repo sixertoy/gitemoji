@@ -1,6 +1,6 @@
 {
   "name": "gitmojo",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "license": "MIT",
   "author": "Matthieu Lassalvy <sixertoy.github@gmail.com>",
   "description": "Commit messages enhanced with emojis",
