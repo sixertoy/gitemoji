@@ -32,7 +32,7 @@ try {
     // .option('win', 'Use EOL windows style into commit message', false)
     .option('all', 'Replace all tags in commit message and body', false)
     // .option('config', 'Emojis config file', DEFAULT_CONFIG_FILE)
-    // .command('docs', 'Generate GITMOJO.md in current project', false)
+    .option('docs', 'Generate GITMOJO.md in current project', false)
     .command('init', 'Initialize GitMojo in your project', initGitmojoInProject)
     .parse(process.argv);
   prepareCommitMessage(args);
