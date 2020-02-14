@@ -4,14 +4,9 @@
 
 **Emojilify all the things \o/**
 
-## Requirements
-
-- NodeJS >= 12.13.1
-- [Husky >= 4.2.3](https://www.npmjs.com/package/husky)
-
 ## Install
 
-GitMojo need to be installed globally
+#### gitmojo globally
 
 ```bash
 yarn global add gitmojo
@@ -28,14 +23,12 @@ gitmojo init --doc
 
 #### Husky's hook configuration
 
-Update `Husky's` configuration with `prepare-commit-msg` hook
+Update `Husky's` configuration with `prepare-commit-msg` git hook
 
 ```
-{
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "gitmojo --all"
-    }
+"husky": {
+  "hooks": {
+    "prepare-commit-msg": "gitmojo --all"
   }
 }
 ```
@@ -46,10 +39,16 @@ See [GITMOJO.md](./GITMOJO.md) for defaults emojis<br>
 Edit `.gitmojorc.json` in you project to fit your needs<br>
 Use `gitmojo -d` to regenerate the documentation file
 
+## Requirements
+
+- NodeJS >= 12.13.1
+- [Husky >= 4.2.3](https://www.npmjs.com/package/husky)
+
 ## TODOS
 
 - [] check if Husky package is installed
 - [] debug with windows EOL
+- [] remove usage of husky
 
 [npm-url]: https://npmjs.org/package/gitmojo
 [npm-version-img]: http://img.shields.io/npm/v/gitmojo.svg?style=flat-square
