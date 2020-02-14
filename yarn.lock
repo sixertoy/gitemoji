@@ -4399,7 +4399,7 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tablemark@2.0.0:
+tablemark@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/tablemark/-/tablemark-2.0.0.tgz#8eb0db5743d24d1f1d795c3ecd05c28f9c55f635"
   integrity sha512-bgvShWeSUIWO4j6NH7wGrn1xUQMJ/LRZFIRWE6ka5CFNfQ5qOP9FB4amKCurUUr7C0K4AJGHYDLkaf8A6t5Aww==

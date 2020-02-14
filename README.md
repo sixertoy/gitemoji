@@ -1,48 +1,54 @@
 # GitMojo
 
-> Gitmojo hook, replace tag into your commit messages to emojis
+[![NPM version][npm-version-img]][npm-url]
+
+**Replace tags into your commit messages by emoji symbols**
+
+## Requirements
+
+- NodeJS v12.13.1
+- [Husky v4.2.3](https://www.npmjs.com/package/husky)
 
 ## Install
 
-Gitmojo needs to be installed globally
+Gitmojo need to be installed globally
 
 ```bash
-git clone git@github.com:sixertoy/gitmojo.git
-yarn link
-# or npm link
+yarn global add gitmojo
+# or npm install gitmojo -g
 ```
 
-## Usage
-
-Install Gitmojo in your project
+## Initialize Gitmojo in your project
 
 ```bash
-cd  myproject
+cd  my-project
 gitmojo init
-# gitmojo init --config=.gitmojorc
 ```
 
-Update your `package.json` with husky configuration
+Edit `.gitmojorc.json` to fit your needs
+
+## Husky's hook configuration
+
+Update `Husky's` configuration with `prepare-commit-msg` hook
 
 ```
 {
-  ...
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "",
-      "...": "..."
+      "prepare-commit-msg": "gitmojo"
     }
   }
-  ...
 }
 ```
 
-Customize `./.gitmojorc.json` to fit your needs
-
 ## Defaults emojis
 
-> See CONTRIBUTING.md
+See [GITMOJO.md](./GITMOJO.md)
 
 ## TODOS
 
-[] check if husky package is installed
+- [] check if Husky package is installed
+- [] debug with windows EOL
+
+[npm-url]: https://npmjs.org/package/gitmojo
+[npm-version-img]: http://img.shields.io/npm/v/gitmojo.svg?style=flat-square
