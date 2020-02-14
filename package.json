@@ -4,7 +4,21 @@
   "license": "MIT",
   "author": "Matthieu Lassalvy <sixertoy.github@gmail.com>",
   "description": "Commit messages enhanced with emojis",
-  "keywords": [],
+  "keywords": [
+    "git",
+    "commit",
+    "message",
+    "emoji",
+    "husky",
+    "hook",
+    "prepare-commit-msg",
+    "prepare-commit-message",
+    "documentation",
+    "collaborate",
+    "team",
+    "mojo",
+    "gitmojo"
+  ],
   "homepage": "https://github.com/sixertoy/gitmojo#readme",
   "repository": {
     "type": "git",
