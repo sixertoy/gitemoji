@@ -9,7 +9,7 @@ const {
   TAG_REGEX,
   CONTRIBUTING_FILE,
   GITMOJO_FILE,
-  TEMP_COMMIT_FILE,
+  HUKSY_COMMIT_MESSAGE_PARAM,
 } = require('./_constants');
 
 function filterUniqValuesInArray(v, i, a) {
@@ -21,7 +21,7 @@ function removeTagDoubleDotDelimiter(tag) {
 }
 
 function getCommitFile() {
-  const splitted = TEMP_COMMIT_FILE.split(' ')[0];
+  const splitted = HUKSY_COMMIT_MESSAGE_PARAM.split(' ')[0];
   const commitFile = path.join(CWD, splitted);
   return commitFile;
 }
@@ -76,11 +76,11 @@ function writeCommitMessageFile(commitFile, newContent) {
   fse.outputFileSync(commitFile, newContent, { encoding: 'utf8' });
 }
 
-function run(args) {
-  const replaceAll = args.raw.all;
+function run() {
   const emojis = getCurrentProjectEmojis();
-  // TODO detecter si on est dans un contexte Husky
-  if (!emojis || !TEMP_COMMIT_FILE) return args.showHelp();
+  if (!emojis) return args.showHelp();
+
+  const replaceAll = args.raw.all;
   const commitFile = getCommitFile();
   const previousContent = getCommitMessage(commitFile, replaceAll);
   const newContent = replaceAll

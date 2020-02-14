@@ -20,9 +20,7 @@ function copyConfigFileToCurrentProject(configFile) {
 function run(name, sub, options) {
   const configFile = DEFAULT_CONFIG_FILE;
   const configOutputfile = copyConfigFileToCurrentProject(configFile);
-  if (options.doc || options.d) {
-    generateContributingFile(configOutputfile);
-  }
+  if (options.doc || options.d) generateContributingFile(configOutputfile);
   exitWithSuccess();
 }
 

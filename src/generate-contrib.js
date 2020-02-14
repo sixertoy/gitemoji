@@ -12,6 +12,11 @@ function mapTagsToEmojis({ emojiName, tag, alias }) {
 }
 
 function run(configFile) {
+  const exists = configFile && fse.existsSync(configFile);
+  if (!exists) {
+    const msg = 'Missing GitMojo config file in current project';
+    throw new Error(msg);
+  }
   const emojis = fse.readJsonSync(configFile);
   const table = emojis.map(mapTagsToEmojis);
   const markdown = tablemark(table);
