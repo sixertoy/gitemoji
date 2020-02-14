@@ -1,43 +1,33 @@
 [
-  { "tag": "deploy", "emojiName": "rocket" },
-  { "tag": "init", "emojiName": "tada" },
-  { "tag": "tests", "emojiName": "robot", "alias": ["test"] },
-  { "tag": "wip", "emojiName": "construction" },
-  { "tag": "revert", "emojiName": "rewind" },
-  { "tag": "docker", "emojiName": "whale" },
   { "tag": "bugs", "emojiName": "bug" },
-  {
-    "tag": "refactor",
-    "emojiName": "truck",
-    "alias": ["rfct", "rfact", "refacto"]
-  },
   { "tag": "build", "emojiName": "hammer" },
-  { "tag": "config", "emojiName": "gear", "alias": ["conf"] },
+  { "tag": "ci", "emojiName": "vertical_traffic_light" },
+  { "tag": "config", "emojiName": "wrench", "alias": ["conf"] },
   {
-    "tag": "documentation",
-    "emojiName": "books",
-    "alias": ["docs", "doc"]
+    "tag": "delete",
+    "emojiName": "boom",
+    "alias": ["rm", "trash", "cleanup"]
   },
-  { "tag": "auth", "emojiName": "key", "alias": ["login"] },
-  { "tag": "search", "emojiName": "mag_right" },
+  { "tag": "docker", "emojiName": "whale" },
+  { "tag": "documentation", "emojiName": "books", "alias": ["docs", "doc"] },
+  { "tag": "deploy", "emojiName": "rocket" },
   {
     "tag": "feature",
     "emojiName": "sparkles",
     "alias": ["feat", "feats", "features"]
   },
+  { "tag": "format", "emojiName": "art", "alias": ["refactoring"] },
+  { "tag": "hotfix", "emojiName": "rotating_light", "alias": ["fix"] },
+  { "tag": "init", "emojiName": "tada" },
+  { "tag": "move", "emojiName": "truck", "alias": ["moving"] },
+  { "tag": "pkg", "emojiName": "package", "alias": ["dep"] },
+  { "tag": "responsive", "emojiName": "phone", "alias": ["mobile"] },
+  { "tag": "revert", "emojiName": "rewind" },
   {
     "tag": "style",
-    "emojiName": "art",
+    "emojiName": "lipstick",
     "alias": ["css", "sass", "styles", "ui"]
   },
-  { "tag": "move", "emojiName": "truck" },
-  { "tag": "pkg", "emojiName": "package", "alias": ["dep"] },
-  { "tag": "hotfix", "emojiName": "rotating_light", "alias": ["fix"] },
-  { "tag": "ci", "emojiName": "vertical_traffic_light" },
-  { "tag": "responsive", "emojiName": "phone", "alias": ["mobile"] },
-  {
-    "tag": "delete",
-    "emojiName": "boom",
-    "alias": ["rm", "trash", "cleanup"]
-  }
+  { "tag": "tests", "emojiName": "white_check_mark", "alias": ["test"] },
+  { "tag": "wip", "emojiName": "construction" }
 ]
