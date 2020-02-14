@@ -6,7 +6,7 @@
 
 ## Install
 
-#### gitmojo globally
+#### Install GitMojo globally
 
 ```bash
 yarn global add gitmojo
@@ -41,7 +41,7 @@ Use `gitmojo -d` to regenerate the documentation file
 
 ## Requirements
 
-- NodeJS >= 12.13.1
+- [NodeJS >= 12.13.1](https://www.nodejs.org/api)
 - [Husky >= 4.2.3](https://www.npmjs.com/package/husky)
 
 ## TODOS
