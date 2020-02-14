@@ -1,23 +1,23 @@
-| Keyword       | Symbol | Alias               |
-| ------------- | ------ | ------------------- |
-| deploy        | 🚀     |                     |
-| init          | 🎉     |                     |
-| tests         | 🤖     | test,robot          |
-| wip           | 🚧     |                     |
-| revert        | ⏪     |                     |
-| docker        | 🐳     |                     |
-| bug           | 🐛     | bugs                |
-| refactor      | 🚚     | rfct,rfact,refacto  |
-| build         | 🔨     |                     |
-| config        | ⚙      | conf                |
-| documentation | 📚     | docs,doc            |
-| auth          | 🔑     | login               |
-| search        | 🔎     |                     |
-| feature       | ✨     | feat,feats,features |
-| style         | 🎨     | css,sass,styles,ui  |
-| move          | 🚚     |                     |
-| package       | 📦     | dep,pkg             |
-| hotfix        | 🚨     | fix                 |
-| ci            | 🚦     |                     |
-| responsive    | ☎️     | mobile,phone        |
-| delete        | 💥     | rm,trash,cleanup    |
+| Tag           | Emoji symbol | Alias                        |
+| ------------- | ------------ | ---------------------------- |
+| deploy        | 🚀           | rocket                       |
+| init          | 🎉           | tada                         |
+| tests         | 🤖           | test,robot                   |
+| wip           | 🚧           | construction                 |
+| revert        | ⏪            | rewind                       |
+| docker        | 🐳           | whale                        |
+| bugs          | 🐛           | bug                          |
+| refactor      | 🚚           | rfct,rfact,refacto,truck     |
+| build         | 🔨           | hammer                       |
+| config        | ⚙            | conf,gear                    |
+| documentation | 📚           | docs,doc,books               |
+| auth          | 🔑           | login,key                    |
+| search        | 🔎           | mag_right                    |
+| feature       | ✨            | feat,feats,features,sparkles |
+| style         | 🎨           | css,sass,styles,ui,art       |
+| move          | 🚚           | truck                        |
+| pkg           | 📦           | dep,package                  |
+| hotfix        | 🚨           | fix,rotating_light           |
+| ci            | 🚦           | vertical_traffic_light       |
+| responsive    | ☎️           | mobile,phone                 |
+| delete        | 💥           | rm,trash,cleanup,boom        |
