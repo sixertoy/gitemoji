@@ -13,29 +13,32 @@
  *
  */
 const path = require('path');
+const args = require('args');
 
-const { CWD, KISS_DIRNAME, KISS_ROOTPATH } = require('./src/constants');
-const { error, home } = require('./src/core');
-const {
-  excludeNonExistingPath,
-  excludeSystemsFiles,
-  getTemplatesFilesInDirectory,
-  lookup,
-  mapTemplatesFilesToTypes,
-} = require('./src/domain');
-const {
-  checkFileIsAllowedType,
-  checkIsAllowedType,
-  checkIsFile,
-  exit,
-  getCliArguments,
-  outputAvailablesTypes,
-  outputHelp,
-  outputTemplateContent,
-  outputTemplateForAtom,
-  outputWelcomeMessage,
-  writeFile,
-} = require('./src/cli-helpers');
+args.command('init', 'Initialize hook in your project', ['i']);
+
+// const { CWD, KISS_DIRNAME, KISS_ROOTPATH } = require('./src/constants');
+// const { error, home } = require('./src/core');
+// const {
+//   excludeNonExistingPath,
+//   excludeSystemsFiles,
+//   getTemplatesFilesInDirectory,
+//   lookup,
+//   mapTemplatesFilesToTypes,
+// } = require('./src/domain');
+// const {
+//   checkFileIsAllowedType,
+//   checkIsAllowedType,
+//   checkIsFile,
+//   exit,
+//   getCliArguments,
+//   outputAvailablesTypes,
+//   outputHelp,
+//   outputTemplateContent,
+//   outputTemplateForAtom,
+//   outputWelcomeMessage,
+//   writeFile,
+// } = require('./src/cli-helpers');
 
 const USE_DEBUG = true;
 const USE_TTY = process.stderr.isTTY;

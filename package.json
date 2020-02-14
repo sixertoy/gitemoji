@@ -29,6 +29,7 @@
     "cli.js"
   ],
   "devDependencies": {
+    "args": "^5.0.1",
     "babel-eslint": "10.0.3",
     "emojilib": "2.4.0",
     "eslint": "5.3.0",
