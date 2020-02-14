@@ -22,7 +22,8 @@ yarn global add gitmojo
 
 ```bash
 cd  my-project
-gitmojo init
+gitmojo init --doc
+# gitmojo init
 ```
 
 Edit `.gitmojorc.json` to fit your needs
@@ -35,7 +36,7 @@ Update `Husky's` configuration with `prepare-commit-msg` hook
 {
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "gitmojo"
+      "prepare-commit-msg": "gitmojo --all"
     }
   }
 }
