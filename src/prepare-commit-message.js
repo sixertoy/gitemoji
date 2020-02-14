@@ -76,11 +76,11 @@ function writeCommitMessageFile(commitFile, newContent) {
   fse.outputFileSync(commitFile, newContent, { encoding: 'utf8' });
 }
 
-function run() {
+function run(flags) {
   const emojis = getCurrentProjectEmojis();
   if (!emojis) return args.showHelp();
 
-  const replaceAll = args.raw.all;
+  const replaceAll = Boolean(flags.all || flag.a);
   const commitFile = getCommitFile();
   const previousContent = getCommitMessage(commitFile, replaceAll);
   const newContent = replaceAll

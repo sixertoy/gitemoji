@@ -54,7 +54,7 @@ try {
   const flags = args.parse(process.argv);
   const shouldGenerateGitmojoDoc = flags.doc || flags.d;
   if (shouldUseHuskyHook) {
-    prepareCommitMessage(args);
+    prepareCommitMessage(flags);
   } else if (shouldGenerateGitmojoDoc) {
     const configFile = path.join(CWD, GITMOJO_FILE);
     generateContributingFile(configFile);
@@ -72,4 +72,5 @@ try {
     const msg = '\u001b[31m! Unexpected error has occurred\u001b[39m\n';
     process.stderr.write(msg);
   }
+  process.exit(1);
 }
