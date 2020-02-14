@@ -8,7 +8,7 @@ const getEmojiSymbolByEmojiName = require('./get-emoji-symbol-by-emoji-name');
 function mapTagsToEmojis({ emojiName, tag, alias }) {
   const emojiSymbol = getEmojiSymbolByEmojiName(emojiName);
   const aliases = (alias || []).concat([emojiName]);
-  return { tag, emojiSymbol, alias: aliases };
+  return { tag: `:${tag}:`, emojiSymbol, alias: aliases };
 }
 
 function run(configFile) {
