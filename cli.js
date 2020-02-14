@@ -16,8 +16,8 @@
  */
 const path = require('path');
 const args = require('args');
-const initializeEmojiForCurrentProject = require('./src/init');
 const prepareCommitMessage = require('./src/prepare-commit-message');
+const initGitmojoInProject = require('./src/init-gitmojo-in-project');
 
 const {
   TIME_COLOR,
@@ -31,14 +31,9 @@ try {
   args
     // .option('win', 'Use EOL windows style into commit message', false)
     .option('all', 'Replace all tags in commit message and body', false)
-    .option('config', 'Emojis config file', DEFAULT_CONFIG_FILE)
-    .option('no-docs', 'Do not generate contributing file at init', false)
-    .command(
-      'init',
-      'Initialize hook in your project',
-      initializeEmojiForCurrentProject,
-      ['i']
-    )
+    // .option('config', 'Emojis config file', DEFAULT_CONFIG_FILE)
+    // .command('docs', 'Generate GITMOJO.md in current project', false)
+    .command('init', 'Initialize GitMojo in your project', initGitmojoInProject)
     .parse(process.argv);
   prepareCommitMessage(args);
 } catch (e) {
