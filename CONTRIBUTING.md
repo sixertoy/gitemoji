@@ -1,37 +1,23 @@
-| Keyword    | Tag                    | Symbol |
-| ---------- | ---------------------- | ------ |
-| deploy     | rocket                 | 🚀     |
-| init       | tada                   | 🎉     |
-| test       | robot                  | 🤖     |
-| tests      | robot                  | 🤖     |
-| wip        | construction           | 🚧     |
-| revert     | rewind                 | ⏪     |
-| docker     | whale                  | 🐳     |
-| bug        | bug                    | 🐛     |
-| rfact      | truck                  | 🚚     |
-| refacto    | truck                  | 🚚     |
-| refactor   | truck                  | 🚚     |
-| build      | hammer                 | 🔨     |
-| conf       | gear                   | ⚙      |
-| config     | gear                   | ⚙      |
-| doc        | books                  | 📚     |
-| login      | key                    | 🔑     |
-| search     | mag_right              | 🔎     |
-| feat       | sparkles               | ✨     |
-| feats      | sparkles               | ✨     |
-| feature    | sparkles               | ✨     |
-| features   | sparkles               | ✨     |
-| css        | art                    | 🎨     |
-| sass       | art                    | 🎨     |
-| style      | art                    | 🎨     |
-| styles     | art                    | 🎨     |
-| move       | truck                  | 🚚     |
-| dep        | package                | 📦     |
-| pkg        | package                | 📦     |
-| fix        | rotating_light         | 🚨     |
-| hotfix     | rotating_light         | 🚨     |
-| ci         | vertical_traffic_light | 🚦     |
-| mobile     | phone                  | ☎️     |
-| responsive | phone                  | ☎️     |
-| rm         | boom                   | 💥     |
-| delete     | boom                   | 💥     |
+| Keyword       | Tag                    | Symbol | Alias               |
+| ------------- | ---------------------- | ------ | ------------------- |
+| deploy        | rocket                 | 🚀     |                     |
+| init          | tada                   | 🎉     |                     |
+| tests         | robot                  | 🤖     | test,robot          |
+| wip           | construction           | 🚧     |                     |
+| revert        | rewind                 | ⏪      |                     |
+| docker        | whale                  | 🐳     |                     |
+| bug           | bug                    | 🐛     | bugs                |
+| refactor      | truck                  | 🚚     | rfct,rfact,refacto  |
+| build         | hammer                 | 🔨     |                     |
+| config        | gear                   | ⚙      | conf                |
+| documentation | books                  | 📚     | docs,doc            |
+| auth          | key                    | 🔑     | login               |
+| search        | mag_right              | 🔎     |                     |
+| feature       | sparkles               | ✨      | feat,feats,features |
+| style         | art                    | 🎨     | css,sass,styles,ui  |
+| move          | truck                  | 🚚     |                     |
+| package       | package                | 📦     | dep,pkg             |
+| hotfix        | rotating_light         | 🚨     | fix                 |
+| ci            | vertical_traffic_light | 🚦     |                     |
+| responsive    | phone                  | ☎️     | mobile,phone        |
+| delete        | boom                   | 💥     | rm,trash,cleanup    |

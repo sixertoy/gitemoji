@@ -1,25 +1,45 @@
 # GitMojo
 
+> Gitmojo hook, replace tag into your commit messages to emojis
+
 ## Install
 
 ```bash
 git clone git@github.com:sixertoy/gitmojo.git
+npm link
+# or yarn link
 ```
 
 ## Usage
 
-- replace values in `./emojis.json`
-- `npm run build`
-- copy/move `./build/prepare-commit-msg` to your project's `.git/hooks` folder
+Install Gitmojo in your project
 
-## Defaults
+```bash
+cd  myproject
+gitmojo init
+```
 
-| Keyword  | Symbol |            |     |         |     |
-| -------- | ------ | ---------- | --- | ------- | --- |
-| deploy   | 🚀     | init       | 🎉  | test    | 🤖  |
-| pkg      | 📦     | wip        | 🚧  | revert  | ⏪  |
-| docker   | 🐳     | bug        | 🐛  | styles  | 🎨  |
-| refactor | ♻️     | build      | 🔨  | config  | ⚙   |
-| doc      | 📚     | login      | 🔑  | search  | 🔎  |
-| delete   | 💥     | CI         | 🚦  | feature | ✨  |
-| hotfix   | 🚨     | responsive | ☎️  |         |     |
+Update your `package.json` with husky configuration
+
+```
+{
+  ...
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "",
+      "...": "..."
+    }
+  }
+  ...
+}
+```
+
+Customize `./.gitmojorc.json` to fit your needs
+
+## Defaults emojis
+
+> See CONTRIBUTING.md
+
+## TODOS
+
+[] check if husky package is installed
