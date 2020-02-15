@@ -53,5 +53,5 @@ Use `gitmojo -d` to regenerate the documentation file
 
 [npm-url]: https://npmjs.org/package/gitmojo
 [npm-version-img]: http://img.shields.io/npm/v/gitmojo.svg?style=flat-square
-[travis-url]: (https://travis-ci.org/sixertoy/gitmojo)
-[travis-status-img]: (https://travis-ci.org/sixertoy/gitmojo.svg?branch=master)
+[travis-url]: https://travis-ci.org/sixertoy/gitmojo
+[travis-status-img]: https://img.shields.io/travis/sixertoy/gitmojo?style=flat-square

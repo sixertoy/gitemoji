@@ -65,6 +65,6 @@
   },
   "scripts": {
     "cleanup": "rm -rf node_modules && rm yarn.lock",
-    "lint": "eslint ./src/**/*.js"
+    "lint": "./node_modules/.bin/eslint ./src/**/*.js"
   }
 }

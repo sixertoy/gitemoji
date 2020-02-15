@@ -5,9 +5,13 @@ node_js:
 env:
   - NODE_ENV=production
 
+install:
+  - yarn install --production=false
+
 script:
   - yarn lint
 
 cache:
+  yarn: true
   directories:
     - node_modules
