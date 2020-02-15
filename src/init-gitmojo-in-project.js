@@ -1,12 +1,7 @@
 const path = require('path');
 const fse = require('fs-extra');
 
-const {
-  USE_DEBUG,
-  CWD,
-  COMMIT_EMOJIS_FILE,
-  DEFAULT_CONFIG_FILE,
-} = require('./_constants');
+const { USE_DEBUG, CWD, DEFAULT_CONFIG_FILE } = require('./_constants');
 const exitWithSuccess = require('./exit-with-success');
 const generateContributingFile = require('./generate-contrib');
 

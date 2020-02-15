@@ -1,5 +1,5 @@
 const { TIME_COLOR, WS } = require('./_constants');
-const { version, name } = require('../package.json');
+// const { version, name } = require('../package.json');
 
 function exitWithSuccess(message) {
   let msg = message || `Gitmojo initialized with success${WS}`;

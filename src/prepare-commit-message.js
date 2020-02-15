@@ -7,8 +7,6 @@ const {
   CWD,
   EOL,
   TAG_REGEX,
-  CONTRIBUTING_FILE,
-  GITMOJO_FILE,
   HUKSY_COMMIT_MESSAGE_PARAM,
 } = require('./_constants');
 
@@ -87,6 +85,7 @@ function run(args, flags) {
     ? replaceAllKeywordsOccurencesInMessage(previousContent, emojis)
     : replaceFirstKeywordInMessage(previousContent, emojis);
   writeCommitMessageFile(commitFile, newContent);
+  return true;
 }
 
 module.exports = run;

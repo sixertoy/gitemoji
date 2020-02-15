@@ -8,5 +8,9 @@
   "env": {
     "es6": true,
     "node": true
+  },
+  "rules": {
+    "padded-blocks": "off",
+    "no-console": ["error", { "allow": ["time", "timeEnd"] }]
   }
 }

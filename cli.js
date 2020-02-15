@@ -6,12 +6,12 @@
  *
  * Install:
  * npm i -g gitmojo
+ * yarn global add gitmojo
  *
  * Usage:
  * gitmojo --help
  * gitmojo --version
- * gitmojo init
- * gitmojo init --config=.gitmojorc
+ * gitmojo init --doc
  *
  */
 const path = require('path');
@@ -27,9 +27,7 @@ const {
   TIME_COLOR,
   CWD,
   WS,
-  USE_DEBUG,
   USE_TTY,
-  DEFAULT_CONFIG_FILE,
 } = require('./src/_constants');
 
 const shouldUseHuskyHook = Boolean(HUKSY_COMMIT_MESSAGE_PARAM);
@@ -64,7 +62,6 @@ try {
     args.showHelp();
   }
 } catch (e) {
-  console.log('e', e);
   if (!shouldUseHuskyHook && (e || e.message)) {
     const msg = `\u001b[31mError: ${e.message}\u001b[39m\n`;
     process.stderr.write(msg);
