@@ -54,7 +54,7 @@ try {
   const flags = args.parse(process.argv);
   const shouldGenerateGitmojoDoc = flags.doc || flags.d;
   if (shouldUseHuskyHook) {
-    prepareCommitMessage(flags);
+    prepareCommitMessage(args, flags);
   } else if (shouldGenerateGitmojoDoc) {
     const configFile = path.join(CWD, GITMOJO_FILE);
     generateContributingFile(configFile);
@@ -64,6 +64,7 @@ try {
     args.showHelp();
   }
 } catch (e) {
+  console.log('e', e);
   if (!shouldUseHuskyHook && (e || e.message)) {
     const msg = `\u001b[31mError: ${e.message}\u001b[39m\n`;
     process.stderr.write(msg);
