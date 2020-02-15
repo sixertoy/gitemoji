@@ -58,16 +58,14 @@ try {
     generateContributingFile(configFile);
     const message = `GITMOJO.md generated with success${WS}`;
     exitWithSuccess(message);
-  } else {
-    args.showHelp();
   }
 } catch (e) {
-  if (!shouldUseHuskyHook && (e || e.message)) {
+  if (e || e.message) {
     const msg = `\u001b[31mError: ${e.message}\u001b[39m\n`;
     process.stderr.write(msg);
   }
   if (USE_TTY) {
-    const msg = '\u001b[31m! Unexpected error has occurred\u001b[39m\n';
+    const msg = '\u001b[31mGitMojo: Unexpected error has occurred\u001b[39m\n';
     process.stderr.write(msg);
   }
   process.exit(1);

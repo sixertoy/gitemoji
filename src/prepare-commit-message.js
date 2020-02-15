@@ -76,7 +76,10 @@ function writeCommitMessageFile(commitFile, newContent) {
 
 function run(args, flags) {
   const emojis = getCurrentProjectEmojis();
-  if (!emojis) return args.showHelp();
+  if (!emojis) {
+    const msg = 'Missing GitMojo config file in current project';
+    throw new Error(msg);
+  }
 
   const replaceAll = Boolean(flags.all || flags.a);
   const commitFile = getCommitFile();
