@@ -1,6 +1,7 @@
 # GitMojo
 
 [![NPM version][npm-version-img]][npm-url]
+[![Build Status][travis-status-img]][travis-url]
 
 **Emojilify all the things \o/**
 
@@ -52,3 +53,5 @@ Use `gitmojo -d` to regenerate the documentation file
 
 [npm-url]: https://npmjs.org/package/gitmojo
 [npm-version-img]: http://img.shields.io/npm/v/gitmojo.svg?style=flat-square
+[travis-url]: (https://travis-ci.org/sixertoy/gitmojo)
+[travis-status-img]: (https://travis-ci.org/sixertoy/gitmojo.svg?branch=master)

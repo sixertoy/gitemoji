@@ -30,7 +30,7 @@
   "engines": {
     "npm": ">=5.6.0",
     "node": ">=8.10.0",
-    "yarn": ">=1.17.0"
+    "yarn": ">=1.15.2"
   },
   "preferGlobal": true,
   "main": "cli.js",
