@@ -1,5 +1,6 @@
 {
   "hooks": {
+    "pre-commit": "lint-staged",
     "prepare-commit-msg": "gitmojo --all"
   }
 }

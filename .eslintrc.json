@@ -1,5 +1,6 @@
 {
-  "parser": "babel-eslint",
+  "extends": ["airbnb-base/legacy", "prettier"],
+  "plugins": ["prettier", "import"],
   "parserOptions": {
     "ecmaVersion": 9,
     "sourceType": "module"
