@@ -30,7 +30,12 @@ const {
   USE_TTY,
 } = require('./src/_constants');
 
-const shouldUseHuskyHook = Boolean(HUKSY_COMMIT_MESSAGE_PARAM);
+function generateDocumentation() {
+  const configFile = path.join(CWD, GITMOJO_FILE);
+  generateContributingFile(configFile);
+  const message = `GITMOJO.md generated with success${WS}`;
+  exitWithSuccess(message);
+}
 
 try {
   console.time(TIME_COLOR);
@@ -51,13 +56,12 @@ try {
     );
   const flags = args.parse(process.argv);
   const shouldGenerateGitmojoDoc = flags.doc || flags.d;
+
+  const shouldUseHuskyHook = Boolean(HUKSY_COMMIT_MESSAGE_PARAM);
   if (shouldUseHuskyHook) {
     prepareCommitMessage(args, flags);
   } else if (shouldGenerateGitmojoDoc) {
-    const configFile = path.join(CWD, GITMOJO_FILE);
-    generateContributingFile(configFile);
-    const message = `GITMOJO.md generated with success${WS}`;
-    exitWithSuccess(message);
+    generateDocumentation();
   }
 } catch (e) {
   if (e || e.message) {
