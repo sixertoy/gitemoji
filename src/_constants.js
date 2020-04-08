@@ -6,6 +6,7 @@ const WS = ' ';
 const EOL = os.EOL;
 const CWD = process.cwd();
 const TIME_COLOR = 'takes';
+const GIT_FOLDER_NAME = '.git';
 const USE_TTY = process.stderr.isTTY;
 const GITMOJO_FILE = '.gitmojorc.json';
 const CONTRIBUTING_FILE = 'GITMOJO.md';
@@ -24,6 +25,7 @@ module.exports = {
   USE_DEBUG,
   TIME_COLOR,
   GITMOJO_FILE,
+  GIT_FOLDER_NAME,
   HUKSY_COMMIT_MESSAGE_PARAM,
   GITMOJO_ROOTPATH,
   CONTRIBUTING_FILE,

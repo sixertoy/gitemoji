@@ -4,18 +4,25 @@ const fse = require('fs-extra');
 const { USE_DEBUG, CWD, DEFAULT_CONFIG_FILE } = require('./_constants');
 const exitWithSuccess = require('./exit-with-success');
 const generateContributingFile = require('./generate-contrib');
+const installScriptFileIntoProject = require('./install-script');
 
-function copyConfigFileToCurrentProject(configFile) {
-  const filename = path.basename(configFile);
+function copyConfigFileIntoProject() {
+  const filename = path.basename(DEFAULT_CONFIG_FILE);
   const outputfile = path.join(CWD, filename);
-  fse.copySync(configFile, outputfile, { overwrite: USE_DEBUG });
+  fse.copySync(DEFAULT_CONFIG_FILE, outputfile, { overwrite: USE_DEBUG });
   return outputfile;
 }
 
 function run(name, sub, options) {
-  const configFile = DEFAULT_CONFIG_FILE;
-  const configOutputfile = copyConfigFileToCurrentProject(configFile);
-  if (options.doc || options.d) generateContributingFile(configOutputfile);
+  const configOutputfile = copyConfigFileIntoProject();
+  const generateContributing = options.doc || options.d;
+  if (generateContributing) {
+    generateContributingFile(configOutputfile);
+  }
+  const useHusky = options.husky || options.h;
+  if (!useHusky) {
+    installScriptFileIntoProject();
+  }
   exitWithSuccess();
 }
 
