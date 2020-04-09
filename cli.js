@@ -23,14 +23,11 @@ const initGitmojoInProject = require('./src/init-gitmojo-in-project');
 
 const {
   GITMOJO_FILE,
-  HUKSY_COMMIT_MESSAGE_PARAM,
   TIME_COLOR,
   CWD,
   WS,
   USE_TTY,
 } = require('./src/_constants');
-
-const shouldUseHuskyHook = Boolean(HUKSY_COMMIT_MESSAGE_PARAM);
 
 try {
   console.time(TIME_COLOR);
@@ -49,16 +46,16 @@ try {
       '"prepare-commit-message" : "gitmojo --all"',
       'Will replace all occurences in commit message, title and body'
     );
+
   const flags = args.parse(process.argv);
   const shouldGenerateGitmojoDoc = flags.doc || flags.d;
-  if (shouldUseHuskyHook) {
-    prepareCommitMessage(args, flags);
-  } else if (shouldGenerateGitmojoDoc) {
+  if (shouldGenerateGitmojoDoc) {
     const configFile = path.join(CWD, GITMOJO_FILE);
     generateContributingFile(configFile);
     const message = `GITMOJO.md generated with success${WS}`;
     exitWithSuccess(message);
   }
+  prepareCommitMessage(args, flags);
 } catch (e) {
   if (e || e.message) {
     const msg = `\u001b[31mError: ${e.message}\u001b[39m\n`;

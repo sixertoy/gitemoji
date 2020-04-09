@@ -1,14 +1,10 @@
+const fs = require('fs');
 const path = require('path');
 const fse = require('fs-extra');
 
 const getCurrentProjectEmojis = require('./get-current-project-emojis');
 const getEmojiSymbolByEmojiName = require('./get-emoji-symbol-by-emoji-name');
-const {
-  CWD,
-  EOL,
-  TAG_REGEX,
-  HUKSY_COMMIT_MESSAGE_PARAM,
-} = require('./_constants');
+const { CWD, EOL, TAG_REGEX } = require('./_constants');
 
 function filterUniqValuesInArray(v, i, a) {
   return a.indexOf(v) === i;
@@ -18,10 +14,71 @@ function removeTagDoubleDotDelimiter(tag) {
   return tag.split(':').join('');
 }
 
+function getArrayElementAt(array, ind = 0) {
+  if (!array || !Array.isArray(array)) return null;
+  const len = array.length;
+  if (ind > len - 1) return null;
+  return array[ind];
+}
+
+function getFirstLine(filepath) {
+  const lineEnding = '\n';
+  const encoding = 'utf8';
+  return new Promise((resolve, reject) => {
+    const rs = fs.createReadStream(filepath, { encoding });
+    let acc = '';
+    let pos = 0;
+    let index;
+    rs.on('data', chunk => {
+      index = chunk.indexOf(lineEnding);
+      acc += chunk;
+      if (index === -1) {
+        pos += chunk.length;
+      } else {
+        pos += index;
+        rs.close();
+      }
+    })
+      .on('close', () =>
+        resolve(acc.slice(acc.charCodeAt(0) === 0xfeff ? 1 : 0, pos))
+      )
+      .on('error', err => reject(err));
+  });
+}
+
 function getCommitFile() {
-  const splitted = HUKSY_COMMIT_MESSAGE_PARAM.split(' ')[0];
-  const commitFile = path.join(CWD, splitted);
-  return commitFile;
+  let commitFile = '';
+  const gitsource = '.git';
+  let filepath = path.join(CWD, gitsource);
+  const pathExists = fse.pathExistsSync(filepath);
+  if (!pathExists) {
+    const msg = 'GitMojo: Not a git repository';
+    throw new Error(msg);
+  }
+  let isFile = fs.lstatSync(filepath).isFile();
+  if (isFile) {
+    return getFirstLine(filepath)
+      .then(firstLine => {
+        const hasSplitter = firstLine.indexOf(':') > 0;
+        if (!hasSplitter) throw new Error('error');
+        let relativePath = firstLine.split(':');
+        relativePath = getArrayElementAt(relativePath, 1);
+        if (!relativePath) throw new Error('error');
+        commitFile = path.join(CWD, relativePath.trim(), 'COMMIT_EDITMSG');
+        return commitFile;
+      })
+      .catch(() => {
+        const msg = 'GitMojo: Unable to manage git submodules';
+        throw new Error(msg);
+      });
+  }
+  commitFile = path.join(filepath, 'COMMIT_EDITMSG');
+  isFile = fs.lstatSync(commitFile).isFile();
+  if (!isFile) {
+    const msg = 'GitMojo: Unable to find commit message file';
+    throw new Error(msg);
+  }
+  return Promise.resolve(commitFile);
 }
 
 function getCommitMessage(commitFile, replaceAll) {
@@ -74,7 +131,7 @@ function writeCommitMessageFile(commitFile, newContent) {
   fse.outputFileSync(commitFile, newContent, { encoding: 'utf8' });
 }
 
-function run(args, flags) {
+async function run(args, flags) {
   const emojis = getCurrentProjectEmojis();
   if (!emojis) {
     const msg = 'Missing GitMojo config file in current project';
@@ -82,7 +139,7 @@ function run(args, flags) {
   }
 
   const replaceAll = Boolean(flags.all || flags.a);
-  const commitFile = getCommitFile();
+  const commitFile = await getCommitFile();
   const previousContent = getCommitMessage(commitFile, replaceAll);
   const newContent = replaceAll
     ? replaceAllKeywordsOccurencesInMessage(previousContent, emojis)
