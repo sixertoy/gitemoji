@@ -2,9 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const fse = require('fs-extra');
 
+const isGitSubmodule = require('./is-git-submodule');
 const getCurrentProjectEmojis = require('./get-current-project-emojis');
 const getEmojiSymbolByEmojiName = require('./get-emoji-symbol-by-emoji-name');
-const { CWD, EOL, TAG_REGEX } = require('./_constants');
+const {
+  CWD,
+  EOL,
+  TAG_REGEX,
+  GIT_SOURCE,
+  GIT_MESSAGE_FILE,
+} = require('./_constants');
 
 function filterUniqValuesInArray(v, i, a) {
   return a.indexOf(v) === i;
@@ -46,39 +53,43 @@ function getFirstLine(filepath) {
   });
 }
 
-function getCommitFile() {
-  let commitFile = '';
-  const gitsource = '.git';
-  let filepath = path.join(CWD, gitsource);
-  const pathExists = fse.pathExistsSync(filepath);
-  if (!pathExists) {
-    const msg = 'GitMojo: Not a git repository';
-    throw new Error(msg);
-  }
-  let isFile = fs.lstatSync(filepath).isFile();
-  if (isFile) {
-    return getFirstLine(filepath)
-      .then(firstLine => {
-        const hasSplitter = firstLine.indexOf(':') > 0;
-        if (!hasSplitter) throw new Error('error');
-        let relativePath = firstLine.split(':');
-        relativePath = getArrayElementAt(relativePath, 1);
-        if (!relativePath) throw new Error('error');
-        commitFile = path.join(CWD, relativePath.trim(), 'COMMIT_EDITMSG');
-        return commitFile;
-      })
-      .catch(() => {
-        const msg = 'GitMojo: Unable to manage git submodules';
-        throw new Error(msg);
-      });
-  }
-  commitFile = path.join(filepath, 'COMMIT_EDITMSG');
-  isFile = fs.lstatSync(commitFile).isFile();
+function getCommitHookForRepository(filepath) {
+  const commitFile = path.join(filepath, GIT_MESSAGE_FILE);
+  const isFile = fs.lstatSync(commitFile).isFile();
   if (!isFile) {
     const msg = 'GitMojo: Unable to find commit message file';
     throw new Error(msg);
   }
   return Promise.resolve(commitFile);
+}
+
+function getCommitHookForSubmodule(filepath) {
+  return getFirstLine(filepath)
+    .then(firstLine => {
+      const hasSplitter = firstLine.indexOf(':') > 0;
+      if (!hasSplitter) throw new Error('error');
+      let relativePath = firstLine.split(':');
+      relativePath = getArrayElementAt(relativePath, 1);
+      if (!relativePath) throw new Error('error');
+      const commitFile = path.join(CWD, relativePath.trim(), GIT_MESSAGE_FILE);
+      return commitFile;
+    })
+    .catch(() => {
+      const msg = 'GitMojo: Unable to manage git submodules';
+      throw new Error(msg);
+    });
+}
+
+function getCommitFile() {
+  let filepath = path.join(CWD, GIT_SOURCE);
+  const pathExists = fse.pathExistsSync(filepath);
+  if (!pathExists) {
+    const msg = 'GitMojo: Not a git repository';
+    throw new Error(msg);
+  }
+  let isSubmodule = isGitSubmodule(filepath);
+  if (isSubmodule) return getCommitHookForSubmodule(filepath);
+  return getCommitHookForRepository(filepath);
 }
 
 function getCommitMessage(commitFile, replaceAll) {

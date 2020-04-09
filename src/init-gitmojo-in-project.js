@@ -12,9 +12,14 @@ function copyConfigFileToCurrentProject(configFile) {
   return outputfile;
 }
 
+function generateGitHook() {
+  // console.log('generateGitHook generateGitHook generateGitHook');
+}
+
 function run(name, sub, options) {
   const configFile = DEFAULT_CONFIG_FILE;
   const configOutputfile = copyConfigFileToCurrentProject(configFile);
+  if (options.husky || options.h) generateGitHook();
   if (options.doc || options.d) generateContributingFile(configOutputfile);
   exitWithSuccess();
 }

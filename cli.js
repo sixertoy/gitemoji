@@ -12,6 +12,7 @@
  * gitmojo --help
  * gitmojo --version
  * gitmojo init --doc
+ * gitmojo init --husky
  *
  */
 const path = require('path');
@@ -37,6 +38,7 @@ try {
     // Afin de pouvoir remplacer uniquement la premiere ligne du commit message
     .option('all', 'Replace all tags in commit message and body', false)
     .option('doc', 'Generate GITMOJO.md in current project', false)
+    .option('husky', 'Use gitmojo with Husky', false)
     .command('init', 'Initialize GitMojo in your project', initGitmojoInProject)
     .example(
       'gitmojo init --doc',
